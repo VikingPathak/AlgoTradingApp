@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Regal Admin</title>
+    <!-- base:css -->
+    <link rel="stylesheet" href="../../vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="../../vendors/feather/feather.css">
+    <link rel="stylesheet" href="../../vendors/base/vendor.bundle.base.css">
+    <!-- endinject -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="../../css/style.css">
+    <!-- endinject -->
+    <link rel="shortcut icon" href="../../images/favicon.png" />
+    <style>
+        :root {
+            --darkgreen: #005361;
+            --white: #fff;
+        }
+
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body,
+        .tabs-to-dropdown .dropdown-toggle,
+        .tabs-to-dropdown .dropdown-item {
+            font-size: 1.3rem;
+        }
+
+        .tabs-to-dropdown .nav-wrapper {
+            padding: 15px;
+            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.12);
+        }
+
+        .tabs-to-dropdown .nav-wrapper a {
+            color: var(--darkgreen);
+        }
+
+        .tabs-to-dropdown .nav-pills .nav-link.active {
+            background-color: var(--darkgreen);
+        }
+
+        .tabs-to-dropdown .nav-pills li:not(:last-child) {
+            margin-right: 30px;
+        }
+
+        .tabs-to-dropdown .tab-content .container-fluid {
+            max-width: 1250px;
+            padding-top: 70px;
+            padding-bottom: 70px;
+        }
+
+        .tabs-to-dropdown .dropdown-menu {
+            border: none;
+            box-shadow: 0px 5px 14px rgba(0, 0, 0, 0.08);
+        }
+
+        .tabs-to-dropdown .dropdown-item {
+            padding: 14px 28px;
+        }
+
+        .tabs-to-dropdown .dropdown-item:active {
+            color: var(--white);
+        }
+
+        @media (min-width: 1280px) {
+            .tabs-to-dropdown .nav-wrapper {
+                padding: 15px 30px;
+            }
+        }
+
+
+        /* FOOTER STYLES
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+        .page-footer {
+            position: fixed;
+            right: 15px;
+            bottom: 20px;
+            display: flex;
+            align-items: center;
+            font-size: 1rem;
+            padding: 5px;
+            background: var(--white);
+        }
+
+        .page-footer a {
+            margin-left: 4px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-scroller">
+        <!-- Navbar -->
+        <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+            <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
+                <a class="navbar-brand brand-logo" href="index.html"><img src="/images/white-logo.png" alt="logo" /></a>
+                <a class="navbar-brand brand-logo-mini" href="index.html"><img src="/images/white-logo.png"
+                        alt="logo" /></a>
+            </div>
+            <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
+                <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+                    <span class="icon-menu"></span>
+                </button>
+                <ul class="navbar-nav navbar-nav-right">
+                    <li class="nav-item dropdown d-flex mr-4 ">
+                        <a class="nav-link count-indicator dropdown-toggle d-flex align-items-center justify-content-center"
+                            id="notificationDropdown" href="#" data-toggle="dropdown">
+                            <i class="icon-cog"></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
+                            aria-labelledby="notificationDropdown">
+                            <p class="mb-0 font-weight-normal float-left dropdown-header">Settings</p>
+                            <a class="dropdown-item preview-item">
+                                <i class="icon-head"></i> Profile
+                            </a>
+                            <a class="dropdown-item preview-item">
+                                <i class="icon-inbox"></i> Logout
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+                <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
+                    data-toggle="offcanvas">
+                    <span class="icon-menu"></span>
+                </button>
+            </div>
+        </nav>
+
+        <div class="container-fluid page-body-wrapper">
+            <!-- Sidebar -->
+            <nav class="sidebar sidebar-offcanvas" id="sidebar">
+                <ul class="nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/index.html">
+                            <i class="icon-content-right menu-icon"></i>
+                            <span class="menu-title">Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/pages/scan-types.html">
+                            <i class="icon-square-check menu-icon"></i>
+                            <span class="menu-title">Scan Types</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false"
+                            aria-controls="ui-basic">
+                            <i class="icon-star menu-icon"></i>
+                            <span class="menu-title">Strategies</span>
+                            <i class="menu-arrow"></i>
+                        </a>
+                        <div class="collapse" id="ui-basic">
+                            <ul class="nav flex-column sub-menu">
+                                <li class="nav-item"> <a class="nav-link"
+                                        href="/pages/strategies/strategy-1.html">Strategy 1</a></li>
+                                <li class="nav-item"> <a class="nav-link"
+                                        href="/pages/strategies/strategy-2.html">Strategy 2</a></li>
+                                <li class="nav-item"> <a class="nav-link"
+                                        href="/pages/strategies/strategy-3.html">Strategy 3</a></li>
+                                <li class="nav-item"> <a class="nav-link"
+                                        href="/pages/strategies/strategy-4.html">Strategy 4</a></li>
+                                <li class="nav-item"> <a class="nav-link"
+                                        href="/pages/strategies/strategy-5.html">Strategy 5</a></li>
+                                <li class="nav-item"> <a class="nav-link"
+                                        href="/pages/strategies/strategy-6.html">Strategy 6</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/pages/run-strategy.html">
+                            <i class="icon-play menu-icon"></i>
+                            <span class="menu-title">Run Strategy</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/pages/scan-list.html">
+                            <i class="icon-paper menu-icon"></i>
+                            <span class="menu-title">Account</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="docs/documentation.html">
+                            <i class="icon-book menu-icon"></i>
+                            <span class="menu-title">Documentation</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="main-panel">
+                <div class="content-wrapper">
+                    <!-- Page Header -->
+                    <div class="row">
+                        <div class="col-sm-12 mb-4 mb-xl-0">
+                            <h4 class="font-weight-bold text-dark">Strategy 1</h4>
+                            <p class="font-weight-normal mb-2 text-muted">Strategy for Entry and Exit in Options</p>
+                        </div>
+                    </div>
+
+                    <div class="tabs-to-dropdown mt-3">
+                        <div class="nav-wrapper d-flex align-items-center justify-content-between">
+                            <ul class="nav nav-pills d-none d-md-flex" id="pills-tab" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                    <a class="nav-link active" id="pills-company-tab" data-toggle="pill"
+                                        href="#pills-company" role="tab" aria-controls="pills-company"
+                                        aria-selected="true">Custom Include</a>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <a class="nav-link" id="pills-product-tab" data-toggle="pill" href="#pills-product"
+                                        role="tab" aria-controls="pills-product" aria-selected="false">Custom
+                                        Exclude</a>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <a class="nav-link" id="pills-news-tab" data-toggle="pill" href="#pills-news"
+                                        role="tab" aria-controls="pills-news" aria-selected="false">Delayed Entry</a>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact"
+                                        role="tab" aria-controls="pills-contact" aria-selected="false">Analysis</a>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <a class="nav-link" id="super-trend-tab" data-toggle="pill" href="#super-trend"
+                                        role="tab" aria-controls="super-trend" aria-selected="false">SuperTrend</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="tab-content" id="pills-tabContent">
+                            <div class="tab-pane fade show active" id="pills-company" role="tabpanel"
+                                aria-labelledby="pills-company-tab">
+                                <div class="row">
+                                    <div class="col-md-12 grid-margin stretch-card">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <h4 class="card-title">Custom Include</h4>
+                                                <p class="card-description">Indexes to be included in the Analysis</p>
+                                                <button type="button" class="btn btn-primary btn-icon-text">
+                                                    <i class="mdi mdi-download btn-icon-prepend"></i>
+                                                    Download Sample
+                                                </button>
+                                                <button type="button" class="btn btn-primary btn-icon-text">
+                                                    <i class="mdi mdi-upload btn-icon-prepend"></i>
+                                                    Upload Data
+                                                </button>
+                                                <div class="row clearfix mt-3">
+                                                    <div class="col-md-12 column">
+                                                        <table class="table table-bordered table-hover" id="tab_logic">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th class="text-center">#</th>
+                                                                    <th class="text-center">INDEX</th>
+                                                                    <th class="text-center">CONID</th>
+                                                                    <th class="text-center">COMPANY NAME</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr id='addr0'>
+                                                                    <td>1</td>
+                                                                    <td>
+                                                                        <input type="text" name='name[]'
+                                                                            placeholder='Enter Index'
+                                                                            class="form-control" />
+                                                                    </td>
+                                                                    <td>
+                                                                        <input type="text" name='mail[]'
+                                                                            placeholder='Enter Conid'
+                                                                            class="form-control" />
+                                                                    </td>
+                                                                    <td>
+                                                                        <input type="text" name='mobile[]'
+                                                                            placeholder='Enter Company Name'
+                                                                            class="form-control" />
+                                                                    </td>
+                                                                </tr>
+                                                                <tr id='addr1'></tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                                <button id="add_row" class="btn btn-default pull-left">Add
+                                                    Row</button><button id='delete_row'
+                                                    class="pull-right btn btn-default">Delete Row</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tab-pane fade" id="pills-product" role="tabpanel"
+                                aria-labelledby="pills-product-tab">
+                                <div class="row">
+                                    <div class="col-md-12 grid-margin stretch-card">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <h4 class="card-title">Custom Exclude</h4>
+                                                <p class="card-description">Indexes to be included in the Analysis</p>
+                                                <button type="button" class="btn btn-primary btn-icon-text">
+                                                    <i class="mdi mdi-download btn-icon-prepend"></i>
+                                                    Download Sample
+                                                </button>
+                                                <button type="button" class="btn btn-primary btn-icon-text">
+                                                    <i class="mdi mdi-upload btn-icon-prepend"></i>
+                                                    Upload Data
+                                                </button>
+                                                <div class="row clearfix mt-3">
+                                                    <div class="col-md-12 column">
+                                                        <table class="table table-bordered table-hover" id="tab_logic">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th class="text-center">#</th>
+                                                                    <th class="text-center">INDEX</th>
+                                                                    <th class="text-center">CONID</th>
+                                                                    <th class="text-center">COMPANY NAME</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr id='addr0'>
+                                                                    <td>1</td>
+                                                                    <td>
+                                                                        <input type="text" name='name[]'
+                                                                            placeholder='Enter Index'
+                                                                            class="form-control" />
+                                                                    </td>
+                                                                    <td>
+                                                                        <input type="text" name='mail[]'
+                                                                            placeholder='Enter Conid'
+                                                                            class="form-control" />
+                                                                    </td>
+                                                                    <td>
+                                                                        <input type="text" name='mobile[]'
+                                                                            placeholder='Enter Company Name'
+                                                                            class="form-control" />
+                                                                    </td>
+                                                                </tr>
+                                                                <tr id='addr1'></tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                                <button id="add_row" class="btn btn-default pull-left">Add
+                                                    Row</button><button id='delete_row'
+                                                    class="pull-right btn btn-default">Delete Row</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tab-pane fade" id="pills-news" role="tabpanel" aria-labelledby="pills-news-tab">
+                                <div class="row">
+                                    <div class="col-md-12 grid-margin stretch-card">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <h4 class="card-title">Delayed Entry</h4>
+                                                <p class="card-description">Required inputs for delayed entry will come
+                                                    here.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tab-pane fade" id="pills-contact" role="tabpanel"
+                                aria-labelledby="pills-contact-tab">
+                                <div class="row">
+                                    <div class="col-md-12 grid-margin stretch-card">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <h4 class="card-title">Analysis</h4>
+                                                <p class="card-description">Required inputs for analysis will come here.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tab-pane fade" id="super-trend" role="tabpanel"
+                                aria-labelledby="super-trend-tab">
+                                <div class="row">
+                                    <div class="col-md-12 grid-margin stretch-card">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <h4 class="card-title">Super Trend</h4>
+                                                <p class="card-description">Required inputs for super trend will come
+                                                    here.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <button type="button" class="btn btn-outline-primary btn-icon-text">
+                        <i class="mdi mdi-content-save-check-outline btn-icon-prepend"></i>
+                        Save Strategy
+                    </button>
+
+                    <div class="row mt-3">
+                        <div class="col-md-6 grid-margin stretch-card">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="card-title">Create Scan Type</h4>
+                                    <p class="card-description">Create a new scan type for the strategy</p>
+                                    <form class="forms-sample">
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1">Scan Name</label>
+                                            <input type="text" class="form-control" id="exampleInputEmail1"
+                                                placeholder="Ex. Scan Type 1">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleTextarea1">Scan Description</label>
+                                            <textarea class="form-control" id="exampleTextarea1" rows="4"></textarea>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleSelectGender">Parameter</label>
+                                            <select class="form-control" id="exampleSelectGender">
+                                                <option>Halted</option>
+                                                <option>TOP_PERC_GAIN</option>
+                                                <option>TOP_OPEN_PERC_GAIN</option>
+                                                <option>HIGH_OPEN_GAP</option>
+                                                <option>TOP_PERC_LOSE</option>
+                                                <option>TOP_OPEN_PERC_LOSE</option>
+                                                <option>LOW_OPEN_GAP</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1">Price From</label>
+                                            <input type="number" class="form-control" id="exampleInputEmail1"
+                                                placeholder="Ex. 100">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1">Price To</label>
+                                            <input type="number" class="form-control" id="exampleInputEmail1"
+                                                placeholder="Ex. 1000">
+                                        </div>
+                                        <!-- <div class="form-group">
+                                            <label for="exampleSelectGender">Refresh Rate</label>
+                                            <input type="number" class="form-control" id="exampleInputEmail1" value="5"
+                                                placeholder="Ex. 5">
+                                        </div> -->
+                                        <div class="form-group">
+                                            <label for="exampleSelectGender">Symbols Per List</label>
+                                            <input type="number" class="form-control" id="exampleInputEmail1" value="30"
+                                                placeholder="Ex. 30">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleSelectGender">Halted</label>
+                                            <label class="toggle-switch mx-3">
+                                                <input type="checkbox" checked>
+                                                <span class="toggle-slider round"></span>
+                                            </label>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleSelectGender">Has Options</label>
+                                            <label class="toggle-switch mx-3">
+                                                <input type="checkbox" checked>
+                                                <span class="toggle-slider round"></span>
+                                            </label>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary mr-2">Add Scan</button>
+                                        <!-- <button class="btn btn-light">Cancel</button> -->
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- content-wrapper ends -->
+                <!-- partial:../../partials/_footer.html -->
+                <footer class="footer">
+                    <div class="d-sm-flex justify-content-center justify-content-sm-between">
+                        <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center"> Copyright © <a
+                                href="https://www.stringlab.org/" target="_blank">S.T.R.In.G. Lab</a></span>
+                    </div>
+                </footer>
+                <!-- partial -->
+            </div>
+            <!-- main-panel ends -->
+        </div>
+        <!-- page-body-wrapper ends -->
+    </div>
+    <!-- container-scroller -->
+    <!-- base:js -->
+    <script src="../../vendors/base/vendor.bundle.base.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page-->
+    <!-- End plugin js for this page-->
+    <!-- inject:js -->
+    <script src="../../js/off-canvas.js"></script>
+    <script src="../../js/hoverable-collapse.js"></script>
+    <script src="../../js/template.js"></script>
+    <script>
+
+        // Script start for Tabs
+        const $tabsToDropdown = $(".tabs-to-dropdown");
+
+        function generateDropdownMarkup(container) {
+            const $navWrapper = container.find(".nav-wrapper");
+            const $navPills = container.find(".nav-pills");
+            const firstTextLink = $navPills.find("li:first-child a").text();
+            const $items = $navPills.find("li");
+            const markup = `
+    <div class="dropdown d-md-none">
+      <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        ${firstTextLink}
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"> 
+        ${generateDropdownLinksMarkup($items)}
+      </div>
+    </div>
+  `;
+            $navWrapper.prepend(markup);
+        }
+
+        function generateDropdownLinksMarkup(items) {
+            let markup = "";
+            items.each(function () {
+                const textLink = $(this).find("a").text();
+                markup += `<a class="dropdown-item" href="#">${textLink}</a>`;
+            });
+
+            return markup;
+        }
+
+        function showDropdownHandler(e) {
+            // works also
+            //const $this = $(this);
+            const $this = $(e.target);
+            const $dropdownToggle = $this.find(".dropdown-toggle");
+            const dropdownToggleText = $dropdownToggle.text().trim();
+            const $dropdownMenuLinks = $this.find(".dropdown-menu a");
+            const dNoneClass = "d-none";
+            $dropdownMenuLinks.each(function () {
+                const $this = $(this);
+                if ($this.text() == dropdownToggleText) {
+                    $this.addClass(dNoneClass);
+                } else {
+                    $this.removeClass(dNoneClass);
+                }
+            });
+        }
+
+        function clickHandler(e) {
+            e.preventDefault();
+            const $this = $(this);
+            const index = $this.index();
+            const text = $this.text();
+            $this.closest(".dropdown").find(".dropdown-toggle").text(`${text}`);
+            $this
+                .closest($tabsToDropdown)
+                .find(`.nav-pills li:eq(${index}) a`)
+                .tab("show");
+        }
+
+        function shownTabsHandler(e) {
+            // works also
+            //const $this = $(this);
+            const $this = $(e.target);
+            const index = $this.parent().index();
+            const $parent = $this.closest($tabsToDropdown);
+            const $targetDropdownLink = $parent.find(".dropdown-menu a").eq(index);
+            const targetDropdownLinkText = $targetDropdownLink.text();
+            $parent.find(".dropdown-toggle").text(targetDropdownLinkText);
+        }
+
+        $tabsToDropdown.each(function () {
+            const $this = $(this);
+            const $pills = $this.find('a[data-toggle="pill"]');
+
+            generateDropdownMarkup($this);
+
+            const $dropdown = $this.find(".dropdown");
+            const $dropdownLinks = $this.find(".dropdown-menu a");
+
+            $dropdown.on("show.bs.dropdown", showDropdownHandler);
+            $dropdownLinks.on("click", clickHandler);
+            $pills.on("shown.bs.tab", shownTabsHandler);
+        });
+        // Script end for Tabs
+
+        // Script start Custom Include and Custom Exclude
+        $(document).ready(function () {
+            var i = 1;
+            for (let j = 0; j < 29; j++) {
+                let b = i - 1;
+                $('#addr' + i).html($('#addr' + b).html()).find('td:first-child').html(i + 1);
+                $('#tab_logic').append('<tr id="addr' + (i + 1) + '"></tr>');
+                i++;
+            }
+            $("#add_row").click(function () {
+                b = i - 1;
+                $('#addr' + i).html($('#addr' + b).html()).find('td:first-child').html(i + 1);
+                $('#tab_logic').append('<tr id="addr' + (i + 1) + '"></tr>');
+                i++;
+            });
+            $("#delete_row").click(function () {
+                if (i > 1) {
+                    $("#addr" + (i - 1)).html('');
+                    i--;
+                }
+            });
+        });
+        // Script end Custom Include and Custom Exclude
+
+    </script>>
+</body>
+
+</html>
