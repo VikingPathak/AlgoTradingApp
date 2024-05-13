@@ -204,7 +204,29 @@
                             <p class="font-weight-normal mb-2 text-muted">Strategy for Entry and Exit in Options</p>
                         </div>
                     </div>
-
+                    <!-- Select Sub Strategy Block -->
+                    <div class="row mt-3">
+                        <div class="col-md-6 grid-margin stretch-card">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="card-title">Select Sub Strategy</h4>
+                                    <p class="card-description"></p>
+                                    <form class="forms-sample">
+                                        
+                                        <div class="form-group">
+                                            <label for="exampleSelectGender">Sub Strategy</label>
+                                            <select class="form-control" id="exampleSelectGender">
+                                                <option>Entry</option>
+                                                <option>Exit</option>
+                                            </select>
+                                        </div>
+                                        
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Input Data Block -->
                     <div class="tabs-to-dropdown mt-3">
                         <div class="nav-wrapper d-flex align-items-center justify-content-between">
                             <ul class="nav nav-pills d-none d-md-flex" id="pills-tab" role="tablist">
@@ -400,98 +422,22 @@
 
                         </div>
                     </div>
-
+                    <!-- Save Strategy Button -->
                     <button type="button" class="btn btn-outline-primary btn-icon-text">
                         <i class="mdi mdi-content-save-check-outline btn-icon-prepend"></i>
                         Save Strategy
                     </button>
 
-                    <div class="row mt-3">
-                        <div class="col-md-6 grid-margin stretch-card">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h4 class="card-title">Create Scan Type</h4>
-                                    <p class="card-description">Create a new scan type for the strategy</p>
-                                    <form class="forms-sample">
-                                        <div class="form-group">
-                                            <label for="exampleInputEmail1">Scan Name</label>
-                                            <input type="text" class="form-control" id="exampleInputEmail1"
-                                                placeholder="Ex. Scan Type 1">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="exampleTextarea1">Scan Description</label>
-                                            <textarea class="form-control" id="exampleTextarea1" rows="4"></textarea>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="exampleSelectGender">Parameter</label>
-                                            <select class="form-control" id="exampleSelectGender">
-                                                <option>Halted</option>
-                                                <option>TOP_PERC_GAIN</option>
-                                                <option>TOP_OPEN_PERC_GAIN</option>
-                                                <option>HIGH_OPEN_GAP</option>
-                                                <option>TOP_PERC_LOSE</option>
-                                                <option>TOP_OPEN_PERC_LOSE</option>
-                                                <option>LOW_OPEN_GAP</option>
-                                            </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="exampleInputEmail1">Price From</label>
-                                            <input type="number" class="form-control" id="exampleInputEmail1"
-                                                placeholder="Ex. 100">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="exampleInputEmail1">Price To</label>
-                                            <input type="number" class="form-control" id="exampleInputEmail1"
-                                                placeholder="Ex. 1000">
-                                        </div>
-                                        <!-- <div class="form-group">
-                                            <label for="exampleSelectGender">Refresh Rate</label>
-                                            <input type="number" class="form-control" id="exampleInputEmail1" value="5"
-                                                placeholder="Ex. 5">
-                                        </div> -->
-                                        <div class="form-group">
-                                            <label for="exampleSelectGender">Symbols Per List</label>
-                                            <input type="number" class="form-control" id="exampleInputEmail1" value="30"
-                                                placeholder="Ex. 30">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="exampleSelectGender">Halted</label>
-                                            <label class="toggle-switch mx-3">
-                                                <input type="checkbox" checked>
-                                                <span class="toggle-slider round"></span>
-                                            </label>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="exampleSelectGender">Has Options</label>
-                                            <label class="toggle-switch mx-3">
-                                                <input type="checkbox" checked>
-                                                <span class="toggle-slider round"></span>
-                                            </label>
-                                        </div>
-                                        <button type="submit" class="btn btn-primary mr-2">Add Scan</button>
-                                        <!-- <button class="btn btn-light">Cancel</button> -->
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
-                <!-- content-wrapper ends -->
-                <!-- partial:../../partials/_footer.html -->
                 <footer class="footer">
                     <div class="d-sm-flex justify-content-center justify-content-sm-between">
                         <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center"> Copyright © <a
                                 href="https://www.stringlab.org/" target="_blank">S.T.R.In.G. Lab</a></span>
                     </div>
                 </footer>
-                <!-- partial -->
             </div>
-            <!-- main-panel ends -->
         </div>
-        <!-- page-body-wrapper ends -->
     </div>
-    <!-- container-scroller -->
-    <!-- base:js -->
     <script src="../../vendors/base/vendor.bundle.base.js"></script>
     <!-- endinject -->
     <!-- Plugin js for this page-->
