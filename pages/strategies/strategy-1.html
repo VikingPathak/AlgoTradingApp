@@ -5,7 +5,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Regal Admin</title>
+    <title>Pulse Trade</title>
     <!-- base:css -->
     <link rel="stylesheet" href="../../vendors/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -15,7 +15,7 @@
     <!-- inject:css -->
     <link rel="stylesheet" href="../../css/style.css">
     <!-- endinject -->
-    <link rel="shortcut icon" href="../../images/favicon.png" />
+    <link rel="shortcut icon" href="images/logo-pulse-trade-png.png" />
     <style>
         :root {
             --darkgreen: #005361;
@@ -209,18 +209,41 @@
                         <div class="col-md-6 grid-margin stretch-card">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="card-title">Select Sub Strategy</h4>
+                                    <h4 class="card-title">Select Scan Type</h4>
                                     <p class="card-description"></p>
                                     <form class="forms-sample">
-                                        
+
                                         <div class="form-group">
-                                            <label for="exampleSelectGender">Sub Strategy</label>
+                                            <label for="exampleSelectGender">Scan Type</label>
                                             <select class="form-control" id="exampleSelectGender">
-                                                <option>Entry</option>
-                                                <option>Exit</option>
+                                                <option>Scan Type 1</option>
+                                                <option>Scan Type 2</option>
+                                                <option>Scan Type 3</option>
+                                                <option>Scan Type 4</option>
+                                                <option>Scan Type 5</option>
+                                                <option>Scan Type 6</option>
+                                                <option>Scan Type 7</option>
                                             </select>
                                         </div>
-                                        
+
+                                        <div class="">
+                                            <input type="radio" class="btn-check" name="sub-strategy" id="option5"
+                                                autocomplete="off" checked>
+                                            <label class="btn" for="option5">Strategy 1-1</label>
+                                            <input type="radio" class="btn-check" name="sub-strategy" id="option6"
+                                                autocomplete="off">
+                                            <label class="btn" for="option6">Strategy 1-2</label>
+                                        </div>
+
+                                        <div>
+                                            <input type="radio" class="btn-check" name="options-base" id="option3"
+                                                autocomplete="off" checked>
+                                            <label class="btn" for="option3">Entry</label>
+                                            <input type="radio" class="btn-check" name="options-base" id="option4"
+                                                autocomplete="off">
+                                            <label class="btn" for="option4">Exit</label>
+                                        </div>
+
                                     </form>
                                 </div>
                             </div>
@@ -239,18 +262,6 @@
                                     <a class="nav-link" id="pills-product-tab" data-toggle="pill" href="#pills-product"
                                         role="tab" aria-controls="pills-product" aria-selected="false">Custom
                                         Exclude</a>
-                                </li>
-                                <li class="nav-item" role="presentation">
-                                    <a class="nav-link" id="pills-news-tab" data-toggle="pill" href="#pills-news"
-                                        role="tab" aria-controls="pills-news" aria-selected="false">Delayed Entry</a>
-                                </li>
-                                <li class="nav-item" role="presentation">
-                                    <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact"
-                                        role="tab" aria-controls="pills-contact" aria-selected="false">Analysis</a>
-                                </li>
-                                <li class="nav-item" role="presentation">
-                                    <a class="nav-link" id="super-trend-tab" data-toggle="pill" href="#super-trend"
-                                        role="tab" aria-controls="super-trend" aria-selected="false">SuperTrend</a>
                                 </li>
                             </ul>
                         </div>
@@ -323,7 +334,7 @@
                                         <div class="card">
                                             <div class="card-body">
                                                 <h4 class="card-title">Custom Exclude</h4>
-                                                <p class="card-description">Indexes to be included in the Analysis</p>
+                                                <p class="card-description">Indexes to be excluded in the Analysis</p>
                                                 <button type="button" class="btn btn-primary btn-icon-text">
                                                     <i class="mdi mdi-download btn-icon-prepend"></i>
                                                     Download Sample
@@ -375,15 +386,91 @@
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                    </div>
 
+                    <div class="tabs-to-dropdown mt-3">
+                        <div class="nav-wrapper d-flex align-items-center justify-content-between">
+                            <ul class="nav nav-pills d-none d-md-flex" id="pills-tab" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                    <a class="nav-link" id="pills-news-tab" data-toggle="pill" href="#pills-news"
+                                        role="tab" aria-controls="pills-news" aria-selected="false">Time Frame</a>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact"
+                                        role="tab" aria-controls="pills-contact" aria-selected="false">Calculations 1</a>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <a class="nav-link" id="super-trend-tab" data-toggle="pill" href="#super-trend"
+                                        role="tab" aria-controls="super-trend" aria-selected="false">SuperTrend</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="tab-content" id="pills-tabContent">
                             <div class="tab-pane fade" id="pills-news" role="tabpanel" aria-labelledby="pills-news-tab">
                                 <div class="row">
                                     <div class="col-md-12 grid-margin stretch-card">
                                         <div class="card">
                                             <div class="card-body">
-                                                <h4 class="card-title">Delayed Entry</h4>
-                                                <p class="card-description">Required inputs for delayed entry will come
-                                                    here.</p>
+                                                <h4 class="card-title">Time Frame</h4>
+                                                <p class="card-description">Required inputs for the timeframes</p>
+                                                <table class="table table-bordered table-hover">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Timeframe</th>
+                                                            <th>minutes (min)</th>
+                                                            <th>hours (h)</th>
+                                                            <th>days (d)</th>
+                                                            <th>weeks (w)</th>
+                                                            <th>months (m)</th>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Timeframe</td>
+                                                            <td><input type="number" class="form-control"></td>
+                                                            <td><input type="number" class="form-control"></td>
+                                                            <td><input type="number" class="form-control"></td>
+                                                            <td><input type="number" class="form-control"></td>
+                                                            <td><input type="number" class="form-control"></td>
+                                                        </tr>
+                                                    </thead>
+                                                </table>
+                                                <table class="table table-bordered table-hover mt-3">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Timeframe</th>
+                                                            <th>minutes (min)</th>
+                                                            <th>hours (h)</th>
+                                                            <th>days (d)</th>
+                                                            <th>weeks (w)</th>
+                                                            <th>months (m)</th>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>T1</td>
+                                                            <td><input type="number" class="form-control"></td>
+                                                            <td><input type="number" class="form-control"></td>
+                                                            <td><input type="number" class="form-control"></td>
+                                                            <td><input type="number" class="form-control"></td>
+                                                            <td><input type="number" class="form-control"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>T2</td>
+                                                            <td><input type="number" class="form-control"></td>
+                                                            <td><input type="number" class="form-control"></td>
+                                                            <td><input type="number" class="form-control"></td>
+                                                            <td><input type="number" class="form-control"></td>
+                                                            <td><input type="number" class="form-control"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>T3</td>
+                                                            <td><input type="number" class="form-control"></td>
+                                                            <td><input type="number" class="form-control"></td>
+                                                            <td><input type="number" class="form-control"></td>
+                                                            <td><input type="number" class="form-control"></td>
+                                                            <td><input type="number" class="form-control"></td>
+                                                        </tr>
+                                                    </thead>
+                                                </table>
                                             </div>
                                         </div>
                                     </div>
@@ -396,9 +483,72 @@
                                     <div class="col-md-12 grid-margin stretch-card">
                                         <div class="card">
                                             <div class="card-body">
-                                                <h4 class="card-title">Analysis</h4>
-                                                <p class="card-description">Required inputs for analysis will come here.
-                                                </p>
+                                                <h4 class="card-title">Calculations 1</h4>
+                                                <p class="card-description">Required inputs for calculations 1.</p>
+                                                <table class="table table-bordered table-hover mt-3">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Options ATM Calc</th>
+                                                            <th>Upper Value</th>
+                                                            <th>Lower Value</th>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Constant 1</td>
+                                                            <td><input type="number" class="form-control"></td>
+                                                            <td><input type="number" class="form-control"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Constant 2</td>
+                                                            <td><input type="number" class="form-control"></td>
+                                                            <td><input type="number" class="form-control"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Constant 3</td>
+                                                            <td><input type="number" class="form-control"></td>
+                                                            <td><input type="number" class="form-control"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Constant 4</td>
+                                                            <td><input type="number" class="form-control"></td>
+                                                            <td><input type="number" class="form-control"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Constant 5</td>
+                                                            <td><input type="number" class="form-control"></td>
+                                                            <td><input type="number" class="form-control"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Constant 6</td>
+                                                            <td><input type="number" class="form-control"></td>
+                                                            <td><input type="number" class="form-control"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Constant 7</td>
+                                                            <td><input type="number" class="form-control"></td>
+                                                            <td><input type="number" class="form-control"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Constant 8</td>
+                                                            <td><input type="number" class="form-control"></td>
+                                                            <td><input type="number" class="form-control"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Constant 9</td>
+                                                            <td><input type="number" class="form-control"></td>
+                                                            <td><input type="number" class="form-control"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Constant 10</td>
+                                                            <td><input type="number" class="form-control"></td>
+                                                            <td><input type="number" class="form-control"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Constant 11</td>
+                                                            <td><input type="number" class="form-control"></td>
+                                                            <td><input type="number" class="form-control"></td>
+                                                        </tr>
+                                                    </thead>
+                                                </table>
                                             </div>
                                         </div>
                                     </div>
@@ -422,8 +572,9 @@
 
                         </div>
                     </div>
+
                     <!-- Save Strategy Button -->
-                    <button type="button" class="btn btn-outline-primary btn-icon-text">
+                    <button type="button" class="btn btn-outline-primary btn-icon-text mt-3">
                         <i class="mdi mdi-content-save-check-outline btn-icon-prepend"></i>
                         Save Strategy
                     </button>
