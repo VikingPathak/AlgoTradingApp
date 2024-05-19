@@ -13,6 +13,9 @@
     <link rel="stylesheet" href="../../vendors/base/vendor.bundle.base.css">
     <!-- endinject -->
     <!-- inject:css -->
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="../../css/style.css">
     <!-- endinject -->
     <link rel="shortcut icon" href="images/logo-pulse-trade-png.png" />
@@ -219,6 +222,11 @@
                                         </select>
                                     </div>
 
+                                    <button type="button" class="btn btn-primary btn-icon-text">
+                                        <i class="bi bi-arrow-clockwise btn-icon-prepend"></i>
+                                        Load Profile
+                                    </button>
+
                                 </div>
                             </div>
                         </div>
@@ -269,137 +277,168 @@
                         </div>
                     </div>
                     <!-- Input Data Block -->
-                    <div class="tabs-to-dropdown mt-3">
-                        <div class="nav-wrapper d-flex align-items-center justify-content-between">
-                            <ul class="nav nav-pills d-none d-md-flex" id="pills-tab" role="tablist">
-                                <li class="nav-item" role="presentation">
-                                    <a class="nav-link active" id="pills-company-tab" data-toggle="pill"
-                                        href="#pills-company" role="tab" aria-controls="pills-company"
-                                        aria-selected="true">Custom Include</a>
-                                </li>
-                                <li class="nav-item" role="presentation">
-                                    <a class="nav-link" id="pills-product-tab" data-toggle="pill" href="#pills-product"
-                                        role="tab" aria-controls="pills-product" aria-selected="false">Custom
-                                        Exclude</a>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <div class="tab-content" id="pills-tabContent">
-                            <div class="tab-pane fade show active" id="pills-company" role="tabpanel"
-                                aria-labelledby="pills-company-tab">
-                                <div class="row">
-                                    <div class="col-md-12 grid-margin stretch-card">
-                                        <div class="card">
-                                            <div class="card-body">
-                                                <h4 class="card-title">Custom Include</h4>
-                                                <p class="card-description">Indexes to be included in the Analysis</p>
-                                                <button type="button" class="btn btn-primary btn-icon-text">
-                                                    <i class="mdi mdi-download btn-icon-prepend"></i>
-                                                    Download Sample
-                                                </button>
-                                                <button type="button" class="btn btn-primary btn-icon-text">
-                                                    <i class="mdi mdi-upload btn-icon-prepend"></i>
-                                                    Upload Data
-                                                </button>
-                                                <div class="row clearfix mt-3">
-                                                    <div class="col-md-12 column">
-                                                        <table class="table table-bordered table-hover" id="tab_logic">
-                                                            <thead>
-                                                                <tr>
-                                                                    <th class="text-center">#</th>
-                                                                    <th class="text-center">INDEX</th>
-                                                                    <th class="text-center">CONID</th>
-                                                                    <th class="text-center">COMPANY NAME</th>
-                                                                </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                                <tr id='addr0'>
-                                                                    <td>1</td>
-                                                                    <td>
-                                                                        <input type="text" name='name[]'
-                                                                            placeholder='Enter Index'
-                                                                            class="form-control" />
-                                                                    </td>
-                                                                    <td>
-                                                                        <input type="text" name='mail[]'
-                                                                            placeholder='Enter Conid'
-                                                                            class="form-control" />
-                                                                    </td>
-                                                                    <td>
-                                                                        <input type="text" name='mobile[]'
-                                                                            placeholder='Enter Company Name'
-                                                                            class="form-control" />
-                                                                    </td>
-                                                                </tr>
-                                                                <tr id='addr1'></tr>
-                                                            </tbody>
-                                                        </table>
-                                                    </div>
-                                                </div>
-                                                <button id="add_row" class="btn btn-default pull-left">Add
-                                                    Row</button><button id='delete_row'
-                                                    class="pull-right btn btn-default">Delete Row</button>
-                                            </div>
+                    <div class="accordion" id="accordion1">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    Custom Include & Exclude
+                                </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordion1">
+                                <div class="accordion-body">
+                                    <div class="tabs-to-dropdown mt-3">
+                                        <div class="nav-wrapper d-flex align-items-center justify-content-between">
+                                            <ul class="nav nav-pills d-none d-md-flex" id="pills-tab" role="tablist">
+                                                <li class="nav-item" role="presentation">
+                                                    <a class="nav-link active" id="pills-company-tab" data-toggle="pill"
+                                                        href="#pills-company" role="tab" aria-controls="pills-company"
+                                                        aria-selected="true">Custom Include</a>
+                                                </li>
+                                                <li class="nav-item" role="presentation">
+                                                    <a class="nav-link" id="pills-product-tab" data-toggle="pill"
+                                                        href="#pills-product" role="tab" aria-controls="pills-product"
+                                                        aria-selected="false">Custom
+                                                        Exclude</a>
+                                                </li>
+                                            </ul>
                                         </div>
-                                    </div>
-                                </div>
-                            </div>
 
-                            <div class="tab-pane fade" id="pills-product" role="tabpanel"
-                                aria-labelledby="pills-product-tab">
-                                <div class="row">
-                                    <div class="col-md-12 grid-margin stretch-card">
-                                        <div class="card">
-                                            <div class="card-body">
-                                                <h4 class="card-title">Custom Exclude</h4>
-                                                <p class="card-description">Indexes to be excluded in the Analysis</p>
-                                                <button type="button" class="btn btn-primary btn-icon-text">
-                                                    <i class="mdi mdi-download btn-icon-prepend"></i>
-                                                    Download Sample
-                                                </button>
-                                                <button type="button" class="btn btn-primary btn-icon-text">
-                                                    <i class="mdi mdi-upload btn-icon-prepend"></i>
-                                                    Upload Data
-                                                </button>
-                                                <div class="row clearfix mt-3">
-                                                    <div class="col-md-12 column">
-                                                        <table class="table table-bordered table-hover" id="tab_logic">
-                                                            <thead>
-                                                                <tr>
-                                                                    <th class="text-center">#</th>
-                                                                    <th class="text-center">INDEX</th>
-                                                                    <th class="text-center">CONID</th>
-                                                                    <th class="text-center">COMPANY NAME</th>
-                                                                </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                                <tr id='addr0'>
-                                                                    <td>1</td>
-                                                                    <td>
-                                                                        <input type="text" name='name[]'
-                                                                            placeholder='Enter Index'
-                                                                            class="form-control" />
-                                                                    </td>
-                                                                    <td>
-                                                                        <input type="text" name='mail[]'
-                                                                            placeholder='Enter Conid'
-                                                                            class="form-control" />
-                                                                    </td>
-                                                                    <td>
-                                                                        <input type="text" name='mobile[]'
-                                                                            placeholder='Enter Company Name'
-                                                                            class="form-control" />
-                                                                    </td>
-                                                                </tr>
-                                                                <tr id='addr1'></tr>
-                                                            </tbody>
-                                                        </table>
+                                        <div class="tab-content" id="pills-tabContent">
+                                            <div class="tab-pane fade show active" id="pills-company" role="tabpanel"
+                                                aria-labelledby="pills-company-tab">
+                                                <div class="row">
+                                                    <div class="col-md-12 grid-margin stretch-card">
+                                                        <div class="card">
+                                                            <div class="card-body">
+                                                                <h4 class="card-title">Custom Include</h4>
+                                                                <p class="card-description">Indexes to be included in
+                                                                    the Analysis</p>
+                                                                <button type="button"
+                                                                    class="btn btn-primary btn-icon-text">
+                                                                    <i class="mdi mdi-download btn-icon-prepend"></i>
+                                                                    Download Sample
+                                                                </button>
+                                                                <button type="button"
+                                                                    class="btn btn-primary btn-icon-text">
+                                                                    <i class="mdi mdi-upload btn-icon-prepend"></i>
+                                                                    Upload Data
+                                                                </button>
+                                                                <div class="row clearfix mt-3">
+                                                                    <div class="col-md-12 column">
+                                                                        <table class="table table-bordered table-hover"
+                                                                            id="tab_logic">
+                                                                            <thead>
+                                                                                <tr>
+                                                                                    <th class="text-center">#</th>
+                                                                                    <th class="text-center">INDEX</th>
+                                                                                    <th class="text-center">CONID</th>
+                                                                                    <th class="text-center">COMPANY NAME
+                                                                                    </th>
+                                                                                </tr>
+                                                                            </thead>
+                                                                            <tbody>
+                                                                                <tr id='addr0'>
+                                                                                    <td>1</td>
+                                                                                    <td>
+                                                                                        <input type="text" name='name[]'
+                                                                                            placeholder='Enter Index'
+                                                                                            class="form-control" />
+                                                                                    </td>
+                                                                                    <td>
+                                                                                        <input type="text" name='mail[]'
+                                                                                            placeholder='Enter Conid'
+                                                                                            class="form-control" />
+                                                                                    </td>
+                                                                                    <td>
+                                                                                        <input type="text"
+                                                                                            name='mobile[]'
+                                                                                            placeholder='Enter Company Name'
+                                                                                            class="form-control" />
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr id='addr1'></tr>
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </div>
+                                                                </div>
+                                                                <button id="add_row"
+                                                                    class="btn btn-default pull-left">Add
+                                                                    Row</button><button id='delete_row'
+                                                                    class="pull-right btn btn-default">Delete
+                                                                    Row</button>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                                <button id="add_row" class="btn btn-default pull-left">Add
-                                                    Row</button><button id='delete_row'
-                                                    class="pull-right btn btn-default">Delete Row</button>
+                                            </div>
+
+                                            <div class="tab-pane fade" id="pills-product" role="tabpanel"
+                                                aria-labelledby="pills-product-tab">
+                                                <div class="row">
+                                                    <div class="col-md-12 grid-margin stretch-card">
+                                                        <div class="card">
+                                                            <div class="card-body">
+                                                                <h4 class="card-title">Custom Exclude</h4>
+                                                                <p class="card-description">Indexes to be excluded in
+                                                                    the Analysis</p>
+                                                                <button type="button"
+                                                                    class="btn btn-primary btn-icon-text">
+                                                                    <i class="mdi mdi-download btn-icon-prepend"></i>
+                                                                    Download Sample
+                                                                </button>
+                                                                <button type="button"
+                                                                    class="btn btn-primary btn-icon-text">
+                                                                    <i class="mdi mdi-upload btn-icon-prepend"></i>
+                                                                    Upload Data
+                                                                </button>
+                                                                <div class="row clearfix mt-3">
+                                                                    <div class="col-md-12 column">
+                                                                        <table class="table table-bordered table-hover"
+                                                                            id="tab_logic">
+                                                                            <thead>
+                                                                                <tr>
+                                                                                    <th class="text-center">#</th>
+                                                                                    <th class="text-center">INDEX</th>
+                                                                                    <th class="text-center">CONID</th>
+                                                                                    <th class="text-center">COMPANY NAME
+                                                                                    </th>
+                                                                                </tr>
+                                                                            </thead>
+                                                                            <tbody>
+                                                                                <tr id='addr0'>
+                                                                                    <td>1</td>
+                                                                                    <td>
+                                                                                        <input type="text" name='name[]'
+                                                                                            placeholder='Enter Index'
+                                                                                            class="form-control" />
+                                                                                    </td>
+                                                                                    <td>
+                                                                                        <input type="text" name='mail[]'
+                                                                                            placeholder='Enter Conid'
+                                                                                            class="form-control" />
+                                                                                    </td>
+                                                                                    <td>
+                                                                                        <input type="text"
+                                                                                            name='mobile[]'
+                                                                                            placeholder='Enter Company Name'
+                                                                                            class="form-control" />
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr id='addr1'></tr>
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </div>
+                                                                </div>
+                                                                <button id="add_row"
+                                                                    class="btn btn-default pull-left">Add
+                                                                    Row</button><button id='delete_row'
+                                                                    class="pull-right btn btn-default">Delete
+                                                                    Row</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -408,188 +447,418 @@
                         </div>
                     </div>
 
-                    <div class="tabs-to-dropdown mt-3">
-                        <div class="nav-wrapper d-flex align-items-center justify-content-between">
-                            <ul class="nav nav-pills d-none d-md-flex" id="pills-tab" role="tablist">
-                                <li class="nav-item" role="presentation">
-                                    <a class="nav-link" id="pills-news-tab" data-toggle="pill" href="#pills-news"
-                                        role="tab" aria-controls="pills-news" aria-selected="false">Time Frame</a>
-                                </li>
-                                <li class="nav-item" role="presentation">
-                                    <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact"
-                                        role="tab" aria-controls="pills-contact" aria-selected="false">Calculations
-                                        1</a>
-                                </li>
-                                <li class="nav-item" role="presentation">
-                                    <a class="nav-link" id="super-trend-tab" data-toggle="pill" href="#super-trend"
-                                        role="tab" aria-controls="super-trend" aria-selected="false">SuperTrend</a>
-                                </li>
-                            </ul>
-                        </div>
+                    <div class="accordion mt-3" id="accordion2">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                                    Other Parameters
+                                </button>
+                            </h2>
+                            <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordion2">
+                                <div class="accordion-body">
+                                    <div class="tabs-to-dropdown mt-3">
+                                        <div class="nav-wrapper d-flex align-items-center justify-content-between">
+                                            <ul class="nav nav-pills d-none d-md-flex" id="pills-tab" role="tablist">
+                                                <li class="nav-item" role="presentation">
+                                                    <a class="nav-link" id="pills-news-tab" data-toggle="pill"
+                                                        href="#pills-news" role="tab" aria-controls="pills-news"
+                                                        aria-selected="false">Time Frame</a>
+                                                </li>
+                                                <li class="nav-item" role="presentation">
+                                                    <a class="nav-link" id="pills-contact-tab" data-toggle="pill"
+                                                        href="#pills-contact" role="tab" aria-controls="pills-contact"
+                                                        aria-selected="false">Calculations
+                                                        1</a>
+                                                </li>
+                                                <li class="nav-item" role="presentation">
+                                                    <a class="nav-link" id="super-trend-tab" data-toggle="pill"
+                                                        href="#super-trend" role="tab" aria-controls="super-trend"
+                                                        aria-selected="false">SuperTrend</a>
+                                                </li>
+                                            </ul>
+                                        </div>
 
-                        <div class="tab-content" id="pills-tabContent">
-                            <div class="tab-pane fade" id="pills-news" role="tabpanel" aria-labelledby="pills-news-tab">
-                                <div class="row">
-                                    <div class="col-md-12 grid-margin stretch-card">
-                                        <div class="card">
-                                            <div class="card-body">
-                                                <h4 class="card-title">Time Frame</h4>
-                                                <p class="card-description">Required inputs for the timeframes</p>
-                                                <table class="table table-bordered table-hover">
-                                                    <thead>
-                                                        <tr>
-                                                            <th>Timeframe</th>
-                                                            <th>minutes (min)</th>
-                                                            <th>hours (h)</th>
-                                                            <th>days (d)</th>
-                                                            <th>weeks (w)</th>
-                                                            <th>months (m)</th>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>Timeframe</td>
-                                                            <td><input type="number" class="form-control"></td>
-                                                            <td><input type="number" class="form-control"></td>
-                                                            <td><input type="number" class="form-control"></td>
-                                                            <td><input type="number" class="form-control"></td>
-                                                            <td><input type="number" class="form-control"></td>
-                                                        </tr>
-                                                    </thead>
-                                                </table>
-                                                <table class="table table-bordered table-hover mt-3">
-                                                    <thead>
-                                                        <tr>
-                                                            <th>Timeframe</th>
-                                                            <th>minutes (min)</th>
-                                                            <th>hours (h)</th>
-                                                            <th>days (d)</th>
-                                                            <th>weeks (w)</th>
-                                                            <th>months (m)</th>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>T1</td>
-                                                            <td><input type="number" class="form-control"></td>
-                                                            <td><input type="number" class="form-control"></td>
-                                                            <td><input type="number" class="form-control"></td>
-                                                            <td><input type="number" class="form-control"></td>
-                                                            <td><input type="number" class="form-control"></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>T2</td>
-                                                            <td><input type="number" class="form-control"></td>
-                                                            <td><input type="number" class="form-control"></td>
-                                                            <td><input type="number" class="form-control"></td>
-                                                            <td><input type="number" class="form-control"></td>
-                                                            <td><input type="number" class="form-control"></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>T3</td>
-                                                            <td><input type="number" class="form-control"></td>
-                                                            <td><input type="number" class="form-control"></td>
-                                                            <td><input type="number" class="form-control"></td>
-                                                            <td><input type="number" class="form-control"></td>
-                                                            <td><input type="number" class="form-control"></td>
-                                                        </tr>
-                                                    </thead>
-                                                </table>
+                                        <div class="tab-content" id="pills-tabContent">
+                                            <div class="tab-pane fade" id="pills-news" role="tabpanel"
+                                                aria-labelledby="pills-news-tab">
+                                                <div class="row">
+                                                    <div class="col-md-12 grid-margin stretch-card">
+                                                        <div class="card">
+                                                            <div class="card-body">
+                                                                <div class="row">
+                                                                    <div class="col-md-3 grid-margin stretch-card">
+                                                                        <div class="card" style="border-color: rgb(195, 0, 0);">
+                                                                            <div class="card-body">
+                                                                                <h4 class="card-title" style="color: rgb(195, 0, 0);">Entry Time Frame
+                                                                                </h4>
+                                                                                <!-- <p class="card-description">Required inputs for the timeframes</p> -->
+                                                                                <div class="form-group">
+                                                                                    <!-- <label for="exampleSelectGender">Scan Type</label> -->
+                                                                                    <select class="form-control mt-3"
+                                                                                        id="exampleSelectGender">
+                                                                                        <option>minutes (min)</option>
+                                                                                        <option>hours (h)</option>
+                                                                                        <option>days (d)</option>
+                                                                                        <option>weeks (w)</option>
+                                                                                        <option>months (m)</option>
+                                                                                    </select>
+                                                                                    <input type="number"
+                                                                                        class="form-control mt-3"
+                                                                                        placeholder="T1">
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col grid-margin stretch-card">
+                                                                        <div class="card" style="border-color: rgb(12, 149, 17);">
+                                                                            <div class="card-body">
+                                                                                <h4 class="card-title" style="color: rgb(12, 149, 17);">Delayed Entry
+                                                                                    Time Frame</h4>
+                                                                                <!-- <p class="card-description">Required inputs for the timeframes</p> -->
+                                                                                <div class="form-group">
+                                                                                    <!-- <label for="exampleSelectGender">Scan Type</label> -->
+                                                                                    <select class="form-control mt-3"
+                                                                                        id="exampleSelectGender">
+                                                                                        <option>minutes (min)</option>
+                                                                                        <option>hours (h)</option>
+                                                                                        <option>days (d)</option>
+                                                                                        <option>weeks (w)</option>
+                                                                                        <option>months (m)</option>
+                                                                                    </select>
+                                                                                    <div class="row mt-3">
+                                                                                        <div class="col-md-4">
+                                                                                            <input type="number"
+                                                                                                class="form-control"
+                                                                                                placeholder="T1">
+                                                                                        </div>
+                                                                                        <div class="col-md-4">
+                                                                                            <input type="number"
+                                                                                                class="form-control"
+                                                                                                placeholder="T2">
+                                                                                        </div>
+                                                                                        <div class="col-md-4">
+                                                                                            <input type="number"
+                                                                                                class="form-control"
+                                                                                                placeholder="T3">
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col grid-margin stretch-card">
+                                                                        <div class="card" style="border-color: rgb(12, 69, 174);">
+                                                                            <div class="card-body">
+                                                                                <h4 class="card-title" style="color: rgb(12, 69, 174);">Re-Entry Time
+                                                                                    Frame</h4>
+                                                                                <!-- <p class="card-description">Required inputs for the timeframes</p> -->
+                                                                                <div class="form-group">
+                                                                                    <!-- <label for="exampleSelectGender">Scan Type</label> -->
+                                                                                    <select class="form-control mt-3"
+                                                                                        id="exampleSelectGender">
+                                                                                        <option>minutes (min)</option>
+                                                                                        <option>hours (h)</option>
+                                                                                        <option>days (d)</option>
+                                                                                        <option>weeks (w)</option>
+                                                                                        <option>months (m)</option>
+                                                                                    </select>
+                                                                                    <div class="row mt-3">
+                                                                                        <div class="col-md-4">
+                                                                                            <input type="number"
+                                                                                                class="form-control"
+                                                                                                placeholder="T1">
+                                                                                        </div>
+                                                                                        <div class="col-md-4">
+                                                                                            <input type="number"
+                                                                                                class="form-control"
+                                                                                                placeholder="T2">
+                                                                                        </div>
+                                                                                        <div class="col-md-4">
+                                                                                            <input type="number"
+                                                                                                class="form-control"
+                                                                                                placeholder="T3">
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-12 grid-margin stretch-card">
+                                                                        <div class="card">
+                                                                            <div class="card-body">
+                                                                                <h4 class="card-title">Indicator Time
+                                                                                    Frame</h4>
+                                                                                <!-- <p class="card-description">Required inputs for the timeframes</p> -->
+                                                                                <div class="form-group">
+                                                                                    <!-- <label for="exampleSelectGender">Scan Type</label> -->
+                                                                                    <select class="form-control mt-3"
+                                                                                        id="exampleSelectGender">
+                                                                                        <option>minutes (min)</option>
+                                                                                        <option>hours (h)</option>
+                                                                                        <option>days (d)</option>
+                                                                                        <option>weeks (w)</option>
+                                                                                        <option>months (m)</option>
+                                                                                    </select>
+                                                                                    <div class="row mt-3">
+                                                                                        <div class="col-md-4">
+                                                                                            <input type="number"
+                                                                                                class="form-control"
+                                                                                                placeholder="T1">
+                                                                                        </div>
+                                                                                        <div class="col-md-4">
+                                                                                            <input type="number"
+                                                                                                class="form-control"
+                                                                                                placeholder="T2">
+                                                                                        </div>
+                                                                                        <div class="col-md-4">
+                                                                                            <input type="number"
+                                                                                                class="form-control"
+                                                                                                placeholder="T3">
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
+
+                                            <div class="tab-pane fade" id="pills-contact" role="tabpanel"
+                                                aria-labelledby="pills-contact-tab">
+                                                <div class="row">
+                                                    <div class="col-md-12 grid-margin stretch-card">
+                                                        <div class="card">
+                                                            <div class="card-body">
+                                                                <h4 class="card-title">Options Constants</h4>
+                                                                <p class="card-description">Required inputs for
+                                                                    calculations 1.</p>
+                                                                <table class="table table-bordered table-hover mt-3">
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <th>Options ATM Calc</th>
+                                                                            <th>Upper Value</th>
+                                                                            <th>Lower Value</th>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>Constant 1</td>
+                                                                            <td><input type="number"
+                                                                                    class="form-control"></td>
+                                                                            <td><input type="number"
+                                                                                    class="form-control"></td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>Constant 2</td>
+                                                                            <td><input type="number"
+                                                                                    class="form-control"></td>
+                                                                            <td><input type="number"
+                                                                                    class="form-control"></td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>Constant 3</td>
+                                                                            <td><input type="number"
+                                                                                    class="form-control"></td>
+                                                                            <td><input type="number"
+                                                                                    class="form-control"></td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>Constant 4</td>
+                                                                            <td><input type="number"
+                                                                                    class="form-control"></td>
+                                                                            <td><input type="number"
+                                                                                    class="form-control"></td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>Constant 5</td>
+                                                                            <td><input type="number"
+                                                                                    class="form-control"></td>
+                                                                            <td><input type="number"
+                                                                                    class="form-control"></td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>Constant 6</td>
+                                                                            <td><input type="number"
+                                                                                    class="form-control"></td>
+                                                                            <td><input type="number"
+                                                                                    class="form-control"></td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>Constant 7</td>
+                                                                            <td><input type="number"
+                                                                                    class="form-control"></td>
+                                                                            <td><input type="number"
+                                                                                    class="form-control"></td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>Constant 8</td>
+                                                                            <td><input type="number"
+                                                                                    class="form-control"></td>
+                                                                            <td><input type="number"
+                                                                                    class="form-control"></td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>Constant 9</td>
+                                                                            <td><input type="number"
+                                                                                    class="form-control"></td>
+                                                                            <td><input type="number"
+                                                                                    class="form-control"></td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>Constant 10</td>
+                                                                            <td><input type="number"
+                                                                                    class="form-control"></td>
+                                                                            <td><input type="number"
+                                                                                    class="form-control"></td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>Constant 11</td>
+                                                                            <td><input type="number"
+                                                                                    class="form-control"></td>
+                                                                            <td><input type="number"
+                                                                                    class="form-control"></td>
+                                                                        </tr>
+                                                                    </thead>
+                                                                </table>
+                                                                <h4 class="card-title mt-3">Entry Constants</h4>
+                                                                <table class="table table-bordered table-hover mt-3">
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <th>Constants Index</th>
+                                                                            <th>Entry</th>
+                                                                            <th>Delayed Entry</th>
+                                                                            <th>Re-Entry</th>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>Constant 1</td>
+                                                                            <td><input type="number"
+                                                                                    class="form-control"></td>
+                                                                            <td><input type="number"
+                                                                                    class="form-control"></td>
+                                                                            <td><input type="number"
+                                                                                    class="form-control"></td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>Constant 2</td>
+                                                                            <td><input type="number"
+                                                                                    class="form-control"></td>
+                                                                            <td><input type="number"
+                                                                                    class="form-control"></td>
+                                                                            <td><input type="number"
+                                                                                    class="form-control"></td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>Constant 3</td>
+                                                                            <td><input type="number"
+                                                                                    class="form-control"></td>
+                                                                            <td><input type="number"
+                                                                                    class="form-control"></td>
+                                                                            <td><input type="number"
+                                                                                    class="form-control"></td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>Constant 4</td>
+                                                                            <td><input type="number"
+                                                                                    class="form-control"></td>
+                                                                            <td><input type="number"
+                                                                                    class="form-control"></td>
+                                                                            <td><input type="number"
+                                                                                    class="form-control"></td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>Constant 5</td>
+                                                                            <td><input type="number"
+                                                                                    class="form-control"></td>
+                                                                            <td><input type="number"
+                                                                                    class="form-control"></td>
+                                                                            <td><input type="number"
+                                                                                    class="form-control"></td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>Constant 6</td>
+                                                                            <td><input type="number"
+                                                                                    class="form-control"></td>
+                                                                            <td><input type="number"
+                                                                                    class="form-control"></td>
+                                                                            <td><input type="number"
+                                                                                    class="form-control"></td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>Constant 7</td>
+                                                                            <td><input type="number"
+                                                                                    class="form-control"></td>
+                                                                            <td><input type="number"
+                                                                                    class="form-control"></td>
+                                                                            <td><input type="number"
+                                                                                    class="form-control"></td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>Constant 8</td>
+                                                                            <td><input type="number"
+                                                                                    class="form-control"></td>
+                                                                            <td><input type="number"
+                                                                                    class="form-control"></td>
+                                                                            <td><input type="number"
+                                                                                    class="form-control"></td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>Constant 9</td>
+                                                                            <td><input type="number"
+                                                                                    class="form-control"></td>
+                                                                            <td><input type="number"
+                                                                                    class="form-control"></td>
+                                                                            <td><input type="number"
+                                                                                    class="form-control"></td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>Constant 10</td>
+                                                                            <td><input type="number"
+                                                                                    class="form-control"></td>
+                                                                            <td><input type="number"
+                                                                                    class="form-control"></td>
+                                                                            <td><input type="number"
+                                                                                    class="form-control"></td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>Constant 11</td>
+                                                                            <td><input type="number"
+                                                                                    class="form-control"></td>
+                                                                            <td><input type="number"
+                                                                                    class="form-control"></td>
+                                                                            <td><input type="number"
+                                                                                    class="form-control"></td>
+                                                                        </tr>
+                                                                    </thead>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="tab-pane fade" id="super-trend" role="tabpanel"
+                                                aria-labelledby="super-trend-tab">
+                                                <div class="row">
+                                                    <div class="col-md-12 grid-margin stretch-card">
+                                                        <div class="card">
+                                                            <div class="card-body">
+                                                                <h4 class="card-title">Super Trend</h4>
+                                                                <p class="card-description">Required inputs for super
+                                                                    trend will come
+                                                                    here.</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
                                         </div>
                                     </div>
                                 </div>
                             </div>
-
-                            <div class="tab-pane fade" id="pills-contact" role="tabpanel"
-                                aria-labelledby="pills-contact-tab">
-                                <div class="row">
-                                    <div class="col-md-12 grid-margin stretch-card">
-                                        <div class="card">
-                                            <div class="card-body">
-                                                <h4 class="card-title">Calculations 1</h4>
-                                                <p class="card-description">Required inputs for calculations 1.</p>
-                                                <table class="table table-bordered table-hover mt-3">
-                                                    <thead>
-                                                        <tr>
-                                                            <th>Options ATM Calc</th>
-                                                            <th>Upper Value</th>
-                                                            <th>Lower Value</th>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>Constant 1</td>
-                                                            <td><input type="number" class="form-control"></td>
-                                                            <td><input type="number" class="form-control"></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>Constant 2</td>
-                                                            <td><input type="number" class="form-control"></td>
-                                                            <td><input type="number" class="form-control"></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>Constant 3</td>
-                                                            <td><input type="number" class="form-control"></td>
-                                                            <td><input type="number" class="form-control"></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>Constant 4</td>
-                                                            <td><input type="number" class="form-control"></td>
-                                                            <td><input type="number" class="form-control"></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>Constant 5</td>
-                                                            <td><input type="number" class="form-control"></td>
-                                                            <td><input type="number" class="form-control"></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>Constant 6</td>
-                                                            <td><input type="number" class="form-control"></td>
-                                                            <td><input type="number" class="form-control"></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>Constant 7</td>
-                                                            <td><input type="number" class="form-control"></td>
-                                                            <td><input type="number" class="form-control"></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>Constant 8</td>
-                                                            <td><input type="number" class="form-control"></td>
-                                                            <td><input type="number" class="form-control"></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>Constant 9</td>
-                                                            <td><input type="number" class="form-control"></td>
-                                                            <td><input type="number" class="form-control"></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>Constant 10</td>
-                                                            <td><input type="number" class="form-control"></td>
-                                                            <td><input type="number" class="form-control"></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>Constant 11</td>
-                                                            <td><input type="number" class="form-control"></td>
-                                                            <td><input type="number" class="form-control"></td>
-                                                        </tr>
-                                                    </thead>
-                                                </table>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="tab-pane fade" id="super-trend" role="tabpanel"
-                                aria-labelledby="super-trend-tab">
-                                <div class="row">
-                                    <div class="col-md-12 grid-margin stretch-card">
-                                        <div class="card">
-                                            <div class="card-body">
-                                                <h4 class="card-title">Super Trend</h4>
-                                                <p class="card-description">Required inputs for super trend will come
-                                                    here.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
                         </div>
                     </div>
 
@@ -598,16 +867,16 @@
                         <div class="col-md-12 grid-margin stretch-card">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="card-title">Load Saved Strategy Profile Name</h4>
+                                    <!-- <h4 class="card-title">Save Strategy</h4> -->
                                     <p class="card-description"></p>
                                     <div class="row d-flex align-items-center">
                                         <div class="col-md-6">
-                                            <input type="text" name='name[]' placeholder='Enter Strategy Profile'
-                                                class="form-control" />
+                                            <input type="text" name='name[]'
+                                                placeholder='Enter Name For Strategy Profile' class="form-control" />
                                         </div>
                                         <div class="col-md-6"><button type="button"
                                                 class="btn btn-outline-primary btn-icon-text">
-                                                <i class="mdi mdi-content-save-check-outline btn-icon-prepend"></i>
+                                                <i class="bi bi-save btn-icon-prepend"></i>
                                                 Save Strategy
                                             </button></div>
                                     </div>
@@ -634,6 +903,9 @@
     <script src="../../js/off-canvas.js"></script>
     <script src="../../js/hoverable-collapse.js"></script>
     <script src="../../js/template.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
     <script>
 
         // Script start for Tabs
