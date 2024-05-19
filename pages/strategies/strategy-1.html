@@ -77,8 +77,7 @@
         }
 
 
-        /* FOOTER STYLES
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
+        /* FOOTER STYLES */
         .page-footer {
             position: fixed;
             right: 15px;
@@ -204,12 +203,32 @@
                             <p class="font-weight-normal mb-2 text-muted">Strategy for Entry and Exit in Options</p>
                         </div>
                     </div>
+                    <div class="row mt-3">
+                        <div class="col-md-6 grid-margin stretch-card">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="card-title">Load Saved Strategy Profile</h4>
+                                    <p class="card-description"></p>
+
+                                    <div class="form-group">
+                                        <!-- <label for="exampleSelectGender">Scan Type</label> -->
+                                        <select class="form-control" id="exampleSelectGender">
+                                            <option>None</option>
+                                            <option>Profile 2024-04-01</option>
+                                            <option>Profile 2024-05-01</option>
+                                        </select>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <!-- Select Sub Strategy Block -->
                     <div class="row mt-3">
                         <div class="col-md-6 grid-margin stretch-card">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="card-title">Select Scan Type</h4>
+                                    <h4 class="card-title">Select Strategy Parameters</h4>
                                     <p class="card-description"></p>
                                     <form class="forms-sample">
 
@@ -398,7 +417,8 @@
                                 </li>
                                 <li class="nav-item" role="presentation">
                                     <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact"
-                                        role="tab" aria-controls="pills-contact" aria-selected="false">Calculations 1</a>
+                                        role="tab" aria-controls="pills-contact" aria-selected="false">Calculations
+                                        1</a>
                                 </li>
                                 <li class="nav-item" role="presentation">
                                     <a class="nav-link" id="super-trend-tab" data-toggle="pill" href="#super-trend"
@@ -574,10 +594,27 @@
                     </div>
 
                     <!-- Save Strategy Button -->
-                    <button type="button" class="btn btn-outline-primary btn-icon-text mt-3">
-                        <i class="mdi mdi-content-save-check-outline btn-icon-prepend"></i>
-                        Save Strategy
-                    </button>
+                    <div class="row mt-3">
+                        <div class="col-md-12 grid-margin stretch-card">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="card-title">Load Saved Strategy Profile Name</h4>
+                                    <p class="card-description"></p>
+                                    <div class="row d-flex align-items-center">
+                                        <div class="col-md-6">
+                                            <input type="text" name='name[]' placeholder='Enter Strategy Profile'
+                                                class="form-control" />
+                                        </div>
+                                        <div class="col-md-6"><button type="button"
+                                                class="btn btn-outline-primary btn-icon-text">
+                                                <i class="mdi mdi-content-save-check-outline btn-icon-prepend"></i>
+                                                Save Strategy
+                                            </button></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
                 </div>
                 <footer class="footer">
